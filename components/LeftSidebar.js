@@ -5,10 +5,13 @@ import { SignOutButton, SignedIn } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 function LeftSidebar() {
+    const [isHovered, setIsHovered] = useState(false);
     const router = useRouter();
-    const path = usePathname();
+    const pathname = usePathname();
+
 
     return(
         <section className='leftside'>
@@ -21,6 +24,9 @@ function LeftSidebar() {
                             alt='logo'
                             width={75}
                             height={75}
+                            className={`transform transition-transform ${isHovered ? 'rotate-180' : 'rotate-0'}`}
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
                         />
                         <h1 className='text-white text-2xl font-extrabold pr-5 max-lg:hidden'>Legacy</h1>
                 </Link>
@@ -28,8 +34,9 @@ function LeftSidebar() {
             </div>
             <div>
                     {sidebarLinks.map((link) => {
+                        const isActive = (pathname.includes(link.route) && link.route.length > 1) || pathname === link.route;
                         return(
-                            <div className='hover:bg-blue-700'>
+                            <div className={`hover:bg-blue-700 ${isActive && 'bg-blue-800'}`}>
                             <Link
                                 href={link.route}
                                 key={link.label}

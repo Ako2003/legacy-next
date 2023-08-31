@@ -10,4 +10,8 @@
   .leftside{
     @apply flex-col w-auto bg-blue-950	h-screen gap-4 rounded-e;
   }
+
+  .footerside{
+    @apply flex fixed bottom-0 bg-blue-950  gap-4 rounded-e;
+  }
 }
