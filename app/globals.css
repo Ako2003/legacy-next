@@ -12,6 +12,6 @@
   }
 
   .footerside{
-    @apply fixed w-screen bottom-0 bg-blue-950  gap-4 rounded-e;
+    @apply fixed w-screen bottom-0 bg-blue-950;
   }
 }
