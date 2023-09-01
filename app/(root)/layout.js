@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
           <div className='flex flex-col sm:hidden'>
             <TopSidebar />
           </div>              
-          <div className='flex flex-row max-sm:hidden'>
+          <div className='flex flex-row'>
             <LeftSidebar/>
             {children}
           </div>
