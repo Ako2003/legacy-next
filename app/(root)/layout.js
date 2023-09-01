@@ -22,8 +22,6 @@ export default function RootLayout({ children }) {
           </div>              
           <div className='flex flex-row max-sm:hidden'>
             <LeftSidebar/>
-          </div>
-          <div className='flex flex-row'>
             {children}
           </div>
           <div className='flex flex-col sm:hidden'>
