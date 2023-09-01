@@ -1,13 +1,32 @@
 "use client"
 
 import { SignInButton, SignedIn, SignedOut, UserButton, SignOutButton } from "@clerk/nextjs";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 function TopSidebar() {
+    const [isHovered, setIsHovered] = useState(false);
     const router = useRouter();
+
     return (
         <section className="flex bg-blue-900 rounded-e">
+            <div className='border-r-2'>
+                <Link 
+                    href='/'
+                    className='center'>
+                        <Image
+                            src='/assets/logo.svg'
+                            alt='logo'
+                            width={75}
+                            height={75}
+                            className={`transform transition-transform ${isHovered ? 'rotate-180' : 'rotate-0'}`}
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        />
+                </Link>
+            </div>
             <div className="p-5">
                 <SignedIn>
                     <UserButton afterSignOutUrl="/sign-in"/>
