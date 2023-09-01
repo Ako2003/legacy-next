@@ -16,13 +16,13 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <div className='flex flex-row max-md:hidden'>
+          <div className='flex flex-row max-sm:hidden'>
             <LeftSidebar/>
           </div>
           <div className='flex flex-row'>
             {children}
           </div>
-          <div className='flex flex-col md:hidden'>
+          <div className='flex flex-col sm:hidden'>
             <Footerbar/>
           </div>
         </body>
