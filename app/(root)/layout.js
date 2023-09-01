@@ -22,7 +22,9 @@ export default function RootLayout({ children }) {
           </div>              
           <div className='flex flex-row'>
             <LeftSidebar/>
-            {children}
+            <div className='bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 w-full h-full text-gray-400'>
+              {children}
+            </div>
           </div>
           <div className='flex flex-col sm:hidden'>
             <Footerbar/>

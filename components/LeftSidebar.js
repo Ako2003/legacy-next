@@ -44,7 +44,7 @@ function LeftSidebar() {
                     {sidebarLinks.map((link) => {
                         const isActive = (pathname.includes(link.route) && link.route.length > 1) || pathname === link.route;
                         return(
-                            <div className={`hover:bg-blue-700 ${isActive && 'bg-blue-800'}`}>
+                            <div className={`hover:bg-slate-950 ${isActive && 'bg-slate-600'}`}>
                             <Link
                                 href={link.route}
                                 key={link.label}
@@ -65,7 +65,7 @@ function LeftSidebar() {
                     })}
             </div>
             <hr />
-            <div className='p-6 max-lg:center hover:bg-blue-700 cursor-pointer'>
+            <div className='p-6 max-lg:center hover:bg-slate-950 cursor-pointer'>
                 <SignedIn>
                     <SignOutButton signOutCallback={() => router.push('/sign-in')}>
                         <div className='flex gap-3'>

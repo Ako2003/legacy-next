@@ -11,7 +11,7 @@ function TopSidebar() {
     const router = useRouter();
 
     return (
-        <section className="flex bg-blue-900 rounded-e">
+        <section className="flex bg-slate-900 rounded-e">
             <div className='border-r-2'>
                 <Link 
                     href='/'
@@ -19,20 +19,20 @@ function TopSidebar() {
                         <Image
                             src='/assets/logo.svg'
                             alt='logo'
-                            width={75}
-                            height={75}
+                            width={60}
+                            height={60}
                             className={`transform transition-transform ${isHovered ? 'rotate-180' : 'rotate-0'}`}
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                         />
                 </Link>
             </div>
-            <div className="p-5">
+            <div className="p-3">
                 <SignedIn>
                     <UserButton afterSignOutUrl="/sign-in"/>
                 </SignedIn>
             </div>
-            <div className="p-5 fixed right-2">
+            <div className="p-3 fixed right-2">
                 <SignedIn>
                     <SignOutButton signOutCallback={() => router.push('/sign-in')}>
                         <div className='center gap-3'>
