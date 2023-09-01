@@ -2,13 +2,12 @@
 
 import { SignInButton, SignedIn, SignedOut, UserButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
-import { dark } from "@clerk/themes";
 import { useRouter } from "next/navigation";
 
 function TopSidebar() {
     const router = useRouter();
     return (
-        <section className="flex bg-blue-900 bg-opacity-60 rounded-e">
+        <section className="flex bg-blue-900 rounded-e">
             <div className="p-5">
                 <SignedIn>
                     <UserButton afterSignOutUrl="/sign-in"/>

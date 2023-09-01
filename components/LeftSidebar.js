@@ -1,7 +1,7 @@
 "use client"
 
 import { sidebarLinks } from '@/constants';
-import { SignOutButton, SignedIn } from '@clerk/nextjs';
+import { SignOutButton, SignedIn, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
@@ -32,6 +32,14 @@ function LeftSidebar() {
                 </Link>
                 <hr />
             </div>
+            <div>
+                <div className='flex mx-7 py-5 center'>
+                    <SignedIn>
+                        <UserButton afterSignOutUrl="/sign-in"/>
+                    </SignedIn>
+                </div>
+            </div>
+            <hr />
             <div>
                     {sidebarLinks.map((link) => {
                         const isActive = (pathname.includes(link.route) && link.route.length > 1) || pathname === link.route;
