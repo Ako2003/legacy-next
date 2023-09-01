@@ -47,7 +47,7 @@ function Footerbar() {
                                         width={24}
                                         height={24}
                                     />
-                                    <p className='text-white font-bold'>{link.label}</p>
+                                    <p className='text-white font-bold text-xs'>{link.label}</p>
                                 </Link>
                             </div>
                         );
