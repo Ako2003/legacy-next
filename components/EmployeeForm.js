@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
+import '@radix-ui/themes/styles.css';
 
-import { Flex, Avatar } from "@radix-ui/themes"; 
+import { Flex, Avatar, Link } from "@radix-ui/themes"; 
 import {
     Form,
     FormControl,
@@ -18,12 +19,19 @@ import {
 import { Input } from '@/components/ui/input';
 import * as z from "zod";
 import { Code } from "lucide-react";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string().min(3).max(50),
 })
 
 export function EmployeeForm() {
+    const [isToggled, setIsToggled] = useState(false);
+
+    const handleClick = () => {
+        setIsToggled(!isToggled)
+    }
+
     function onSubmit(values){
         console.log(values);
     }
@@ -34,9 +42,9 @@ export function EmployeeForm() {
         },
     })
 
-    return(
-        <section className="center">
-            <div className="border-2 rounded-xl">
+    const renderEmployeeCreateCard = () => {
+        return (
+            <div className="border-2 border-gray-400 rounded-xl">
                 <div className="center">
                     <Image 
                         src='/assets/up.svg'
@@ -44,12 +52,13 @@ export function EmployeeForm() {
                         width={30}
                         height={30}
                         className="pt-3 cursor-pointer"
+                        onClick={handleClick}
                     />
                 </div>
                 <div className="center pt-5">
                     <p className="text-xl">Create employee</p>
                 </div>
-                <div className="p-10">
+                <div className="p-10 max-sm:center">
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                         <FormField
@@ -59,7 +68,7 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96 max-sm:w-52" placeholder="Name" {...field} />
+                                    <Input className="rounded-xl max-sm:w-52" placeholder="Name" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -72,7 +81,7 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Surname</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96 max-sm:w-52" placeholder="Surname" {...field} />
+                                    <Input className="rounded-xl max-sm:w-52" placeholder="Surname" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -85,7 +94,7 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96 max-sm:w-52" type="email" placeholder="Email" {...field} />
+                                    <Input className="rounded-xl max-sm:w-52" type="email" placeholder="Email" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -98,17 +107,29 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Age</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96 max-sm:w-52" type="number" placeholder="Age" {...field} />
+                                    <Input className="rounded-xl max-sm:w-52" type="number" placeholder="Age" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                             )}
                         />
-                        <Button className="bg-blue-950 w-full rounded-xl hover:bg-blue-900 hover:text-white" type="submit">Submit</Button>
+                        <Button className="bg-blue-950 rounded-xl w-full hover:bg-blue-900 hover:text-white" type="submit">Submit</Button>
                         </form>
                     </Form>
                 </div>
             </div>
+        )
+    }
+
+    return(
+        <section>
+            {isToggled? 
+            renderEmployeeCreateCard(): 
+            <div>
+                <Link onClick={handleClick}>
+                    Create employee
+                </Link>
+            </div>}
         </section>
     );
 }
