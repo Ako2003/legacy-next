@@ -32,7 +32,7 @@ function TopSidebar() {
                     <UserButton afterSignOutUrl="/sign-in"/>
                 </SignedIn>
             </div>
-            <div className="p-3 fixed right-2">
+            <div className="p-3 absolute right-2">
                 <SignedIn>
                     <SignOutButton signOutCallback={() => router.push('/sign-in')}>
                         <div className='center gap-3'>
