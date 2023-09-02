@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           </div>              
           <div className='flex flex-row'>
             <LeftSidebar/>
-            <div className='bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 w-full h-full text-gray-400'>
+            <div className='bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 w-screen h-screen text-gray-400'>
               {children}
             </div>
           </div>

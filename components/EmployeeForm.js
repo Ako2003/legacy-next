@@ -59,7 +59,7 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96" placeholder="Name" {...field} />
+                                    <Input className="rounded-xl w-96 max-sm:w-52" placeholder="Name" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -72,7 +72,7 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Surname</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96" placeholder="Surname" {...field} />
+                                    <Input className="rounded-xl w-96 max-sm:w-52" placeholder="Surname" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -85,7 +85,7 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96" type="email" placeholder="Email" {...field} />
+                                    <Input className="rounded-xl w-96 max-sm:w-52" type="email" placeholder="Email" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -98,7 +98,7 @@ export function EmployeeForm() {
                             <FormItem>
                                 <FormLabel>Age</FormLabel>
                                 <FormControl>
-                                    <Input className="rounded-xl w-96" type="number" placeholder="Age" {...field} />
+                                    <Input className="rounded-xl w-96 max-sm:w-52" type="number" placeholder="Age" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
