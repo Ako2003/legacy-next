@@ -8,22 +8,21 @@ import {
     TableRow,
 } from "@/components/ui/table";
 
-async function getEmployee(){
-    const data = await fetch('http://localhost:3000/api/employees');
-    const employees = await data.json();
+// async function getEmployee(){
+//     const data = await fetch('http://localhost:3000/api/employees');
+//     const employees = await data.json();
     
-    return employees;
-}
+//     return employees;
+// }
 
 export async function InfoTable() {
-    const employees = await getEmployee();
+    // const employees = await getEmployee();
     return(
       <div className="flex mt-15">
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
           <TableHeader>
             <TableRow>
-              {/* Write the name of tables */}
               <TableCell>Name</TableCell>
               <TableCell>Surname</TableCell>
               <TableCell>Email</TableCell>
@@ -31,14 +30,14 @@ export async function InfoTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {employees.map((employee) => (
+            {/* {employees.map((employee) => (
                 <TableRow>
                     <TableCell className="font-medium">{employee.name}</TableCell>
                     <TableCell>{employee.surname}</TableCell>
                     <TableCell>{employee.email}</TableCell>
                     <TableCell className="text-right">{employee.age}</TableCell>
                 </TableRow>
-            ))}
+            ))} */}
           </TableBody>
         </Table>
       </div>
