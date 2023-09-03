@@ -7,7 +7,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import getEmployee from "@/app/api/get-employee/page";
+import getEmployee from "@/app/api/get-employee";
 
 export async function InfoTable() {
     const employees = await getEmployee();
