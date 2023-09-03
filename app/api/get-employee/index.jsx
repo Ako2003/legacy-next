@@ -1,5 +1,5 @@
 async function getEmployee(){
-    const data = await fetch('http://localhost:3000/api/employees');
+    const data = await fetch(process.env.NODE_ENV === 'production' ? process.env.PROD_API_URL : process.env.DEV_API_URL);
     const employees = await data.json();
     
     return employees;
