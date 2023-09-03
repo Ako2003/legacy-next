@@ -2,7 +2,7 @@ import { EmployeeForm } from '@/components/EmployeeForm';
 import { InfoTable } from '@/components/InfoTable';
  
 
-function page() {
+async function page() {     
     return (
         <section className="m-10">
             <div>
