@@ -1,5 +1,6 @@
-"use client"
 import { EmployeeForm } from '@/components/EmployeeForm';
+import { InfoTable } from '@/components/InfoTable';
+ 
 
 function page() {
     return (
@@ -11,6 +12,9 @@ function page() {
                 <div>
                     <EmployeeForm />
                 </div>
+            </div>
+            <div>
+                <InfoTable />
             </div>
         </section>
     );

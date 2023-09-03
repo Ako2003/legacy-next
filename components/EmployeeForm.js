@@ -20,6 +20,7 @@ import { Input } from '@/components/ui/input';
 import * as z from "zod";
 import { Code } from "lucide-react";
 import { useState } from "react";
+import { EmployeeValidation } from "@/lib/validations/employee.validation";
 
 const formSchema = z.object({
   name: z.string().min(3).max(50),
@@ -36,7 +37,7 @@ export function EmployeeForm() {
         console.log(values);
     }
     const form = useForm({
-        resolver: zodResolver(formSchema),
+        resolver: zodResolver(EmployeeValidation),
         defaultValues:{
             name: "",
         },
