@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Image from "next/image";
 import '@radix-ui/themes/styles.css';
 
+
 import { Flex, Avatar, Link } from "@radix-ui/themes"; 
 import {
     Form,
@@ -21,6 +22,7 @@ import * as z from "zod";
 import { useState } from "react";
 import { EmployeeValidation } from "@/lib/validations/employee.validation";
 import { useRouter } from "next/navigation";
+import createEmployee from "@/app/api/employees/create-employee";
 
 export function EmployeeForm() {
     const [isToggled, setIsToggled] = useState(false);
@@ -48,32 +50,20 @@ export function EmployeeForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('https://my-next-legacy.vercel.app/api/employees',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name,
-                    surname,
-                    email,
-                    age
-                },
-                {
-                    mode: 'no-cors'
-                })
-            });
-
+            const res = await createEmployee(name, surname, email, age);
+            console.log(res);
             if(res.ok){
-                router.push('/employees')
+                router.refresh()
+                router.push('/employees');
                 setName('');
                 setSurname('');
                 setEmail('');
-                setAge(''); 
+                setAge('');
+                setIsToggled(false);
             }else{
                 throw new Error ('Failed to create an employee');
             }
+
         } catch (error) {
             console.log(error);
         }            
@@ -97,7 +87,7 @@ export function EmployeeForm() {
                 </div>
                 <div className="p-10 max-sm:center">
                     <Form {...form}>
-                        <form onSubmit={handleSubmit}  className="space-y-8">
+                        <form onSubmit={handleSubmit} className="space-y-8">
                         <FormField
                             control={form.control}
                             name="name"

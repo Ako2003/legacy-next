@@ -7,18 +7,21 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import getEmployees from "@/app/api/get-employees";
+import getEmployees from "@/app/api/employees/get-employees";
 import Image from "next/image";
 import Link from "next/link";
+import DeleteButton from "@/components/DeleteButton";
+
 
 export async function InfoTable() {
     const employees = await getEmployees();
     return(
       <div className="flex mt-15">
         <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
+          <TableCaption>A list of employees.</TableCaption>
           <TableHeader>
             <TableRow>
+              <TableCell>Id</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Surname</TableCell>
               <TableCell>Email</TableCell>
@@ -27,8 +30,11 @@ export async function InfoTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {employees.map((employee) => (
+            {employees.map((employee, index) => {
+              const renderDeleteButton = <DeleteButton id={employee._id}/>
+              return(
                 <TableRow>
+                    <TableCell>{index + 1}</TableCell>
                     <TableCell className="font-medium">{employee.name}</TableCell>
                     <TableCell>{employee.surname}</TableCell>
                     <TableCell>{employee.email}</TableCell>
@@ -46,7 +52,7 @@ export async function InfoTable() {
                           className="cursor-pointer" 
                         />
                       </Link>
-                      <Link className="flex-none" href={"/"}>
+                      <Link className="flex-none" href={`/employees/edit/${employee._id}`}>
                         <Image 
                           src="/assets/edit.svg"
                           width={20}
@@ -55,19 +61,10 @@ export async function InfoTable() {
                           className="cursor-pointer"
                           />
                       </Link>
-                      <Link className="flex-none" href={"/"}>
-                        <Image
-                          src="/assets/delete.svg"
-                          width={20}
-                          height={20}
-                          alt="delete"
-                          className="cursor-pointer"
-                        />
-                      </Link>
+                      {renderDeleteButton}
                     </TableCell>
-
                 </TableRow>
-            ))}
+            )})}
           </TableBody>
         </Table>
       </div>
