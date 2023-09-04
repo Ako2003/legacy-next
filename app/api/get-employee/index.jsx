@@ -1,6 +1,6 @@
 async function getEmployee(id){
     // Return user only with given id
-    const res = await fetch(`http://localhost:3000/api/employees/${id}`,{
+    const res = await fetch(`https://my-next-legacy.vercel.app/api/employees${id}`,{
         cache: 'no-store'
     });
     const employee = await res.json();

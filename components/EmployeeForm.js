@@ -48,7 +48,7 @@ export function EmployeeForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:3000/api/employees',
+            const res = await fetch('https://my-next-legacy.vercel.app/api/employees',
             {
                 method: 'POST',
                 headers: {
