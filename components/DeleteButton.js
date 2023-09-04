@@ -25,7 +25,7 @@ function DeleteButton( { id } ) {
         }
     }
     return (
-        <div>
+        <div className="flex-none ">
             <Image 
                 src="/assets/delete.svg"
                 width={20}
