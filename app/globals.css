@@ -9,7 +9,7 @@
   }
 
   .leftside{
-    @apply flex-col w-auto bg-blue-950 gap-4 rounded-e max-sm:hidden;
+    @apply flex-col w-auto h-full bg-blue-950 gap-4 rounded-e max-sm:hidden;
   }
 
   .footerside{

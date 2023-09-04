@@ -16,13 +16,13 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 ${inter.className}`}>
           <div className='flex flex-col sm:hidden'>
             <TopSidebar />
           </div>              
-          <div className='flex flex-row'>
+          <div className='flex flex-row h-screen'>
             <LeftSidebar/>
-            <div className='bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 w-screen text-gray-400'>
+            <div className='w-screen text-gray-400'>
               {children}
             </div>
           </div>
