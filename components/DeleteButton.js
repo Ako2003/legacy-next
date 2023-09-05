@@ -2,6 +2,7 @@
 import Image from "next/image";
 import deleteEmployee from "@/app/api/employees/delete-employee";
 import { useRouter } from "next/navigation";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,6 +18,7 @@ function DeleteButton( { id } ) {
                 router.refresh()
                 router.push('/employees');
                 toast.success('Employee deleted successfully');
+
             }else{
                 throw new Error ('Failed to delete an employee');
             }
@@ -25,7 +27,7 @@ function DeleteButton( { id } ) {
         }
     }
     return (
-        <div className="flex-none ">
+        <div className="flex-none">
             <Image 
                 src="/assets/delete.svg"
                 width={20}
@@ -33,10 +35,6 @@ function DeleteButton( { id } ) {
                 alt="delete"
                 className="cursor-pointer"
                 onClick={handleClick}
-            />
-            <ToastContainer 
-            closeOnClick={false}
-            autoClose={2000}
             />
         </div>
     );

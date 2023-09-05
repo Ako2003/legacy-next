@@ -1,5 +1,7 @@
 import { EmployeeForm } from '@/components/EmployeeForm';
 import { InfoTable } from '@/components/InfoTable';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
  
 
 async function page() {     
@@ -16,6 +18,11 @@ async function page() {
             <div>
                 <InfoTable />
             </div>
+            <ToastContainer 
+            closeOnClick
+            autoClose={3000}
+            theme="dark"
+            />
         </section>
     );
 }

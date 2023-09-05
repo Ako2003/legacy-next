@@ -1,7 +1,7 @@
-async function createEmployee(name, surname, email, age){
-    const res = await fetch(`http://localhost:3000/api/employees`,{
-        method: 'POST',
+async function updateEmployee(id, name, surname, email, age){
+    const res = await fetch(`https://my-next-legacy.vercel.app/api/employees/${id}`,{
         cache: 'no-store',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -18,4 +18,4 @@ async function createEmployee(name, surname, email, age){
     return res;
 }
 
-export default createEmployee;
+export default updateEmployee;
