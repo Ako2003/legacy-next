@@ -7,7 +7,7 @@ import Image from "next/image";
 import '@radix-ui/themes/styles.css';
 
 
-import { Flex, Avatar, Link } from "@radix-ui/themes"; 
+import { Link } from "@radix-ui/themes"; 
 import {
     Form,
     FormControl,
@@ -23,6 +23,8 @@ import { useState } from "react";
 import { EmployeeValidation } from "@/lib/validations/employee.validation";
 import { useRouter } from "next/navigation";
 import createEmployee from "@/app/api/employees/create-employee";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function EmployeeForm() {
     const [isToggled, setIsToggled] = useState(false);
@@ -55,6 +57,7 @@ export function EmployeeForm() {
             if(res.ok){
                 router.refresh()
                 router.push('/employees');
+                toast.success('Employee created successfully');
                 setName('');
                 setSurname('');
                 setEmail('');
