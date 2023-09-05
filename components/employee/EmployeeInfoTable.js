@@ -10,10 +10,10 @@ import {
 import getEmployees from "@/app/api/employees/get-employees";
 import Image from "next/image";
 import Link from "next/link";
-import DeleteButton from "@/components/DeleteButton";
+import EmployeeDeleteButton from "@/components/employee/EmployeeDeleteButton";
 
 
-export async function InfoTable() {
+export async function EmployeeInfoTable() {
     const employees = await getEmployees();
     return(
       <div className="flex mt-15">
@@ -31,7 +31,7 @@ export async function InfoTable() {
           </TableHeader>
           <TableBody>
             {employees.map((employee, index) => {
-              const renderDeleteButton = <DeleteButton id={employee._id}/>
+              const renderDeleteButton = <EmployeeDeleteButton id={employee._id}/>
               return(
                 <TableRow>
                     <TableCell>{index + 1}</TableCell>

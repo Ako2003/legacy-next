@@ -3,7 +3,7 @@ import getEmployee from "@/app/api/employees/get-employee";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import DeleteButton from "@/components/DeleteButton";
+import EmployeeDeleteButton from '@/components/employee/EmployeeDeleteButton'
 
 async function page() {
     let { id } = useParams()
@@ -22,7 +22,7 @@ async function page() {
                         className="cursor-pointer"
                     />
                 </Link>
-                <DeleteButton id={id}/>
+                <EmployeeDeleteButton id={id}/>
             </div>
             <div className="flex m-10">
                 <div className="flex flex-col">
@@ -39,4 +39,4 @@ async function page() {
         </section>
     );
 }
-export default page
+export default page;

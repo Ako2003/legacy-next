@@ -160,9 +160,9 @@ export function EmployeeForm() {
             {isToggled? 
             renderEmployeeCreateCard(): 
             <div className="mb-10">
-                <Link onClick={handleClick}>
-                    Create employee
-                </Link>
+                <p className="cursor-pointer" onClick={handleClick}>
+                    Create room
+                </p>
             </div>}
         </section>
     );

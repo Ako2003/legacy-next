@@ -1,5 +1,5 @@
-import { EmployeeForm } from '@/components/EmployeeForm';
-import { InfoTable } from '@/components/InfoTable';
+import { EmployeeForm } from '@/components/employee/EmployeeForm';
+import { EmployeeInfoTable } from '@/components/employee/EmployeeInfoTable';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
  
@@ -16,7 +16,7 @@ async function page() {
                 </div>
             </div>
             <div>
-                <InfoTable />
+                <EmployeeInfoTable />
             </div>
             <ToastContainer 
             closeOnClick

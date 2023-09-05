@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function DeleteButton( { id } ) {
+function EmployeeDeleteButton( { id } ) {
     const router = useRouter();
     const handleClick = async ()  => {
         try {
@@ -40,4 +40,4 @@ function DeleteButton( { id } ) {
     );
 }
 
-export default DeleteButton;
+export default EmployeeDeleteButton;
