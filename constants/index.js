@@ -14,14 +14,14 @@ export const sidebarLinks = [
         route: "/rooms",
         label: "Rooms"
     },
-    {
-        imgURL: "/assets/patients.svg",
-        route: "/patients",
-        label: "Patients"
-    },
-    {
-        imgURL: "/assets/money.svg",
-        route: "/salary",
-        label: "Salary"
-    },
+    // {
+    //     imgURL: "/assets/patients.svg",
+    //     route: "/patients",
+    //     label: "Patients"
+    // },
+    // {
+    //     imgURL: "/assets/money.svg",
+    //     route: "/salary",
+    //     label: "Salary"
+    // },
 ]
